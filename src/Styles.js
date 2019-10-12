@@ -22,6 +22,9 @@ export const styles = StyleSheet.create({
     height: SCREEN_HEIGHT,
     width: SCREEN_WIDTH
   },
+  fullWidth: {
+    width: SCREEN_WIDTH
+  },
   absoluteTop: {
     position: "absolute",
     top: 0,
@@ -83,8 +86,11 @@ export const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: 20,
-    marginRight: 10
+    marginRight: 10,
+    justifyContent: "center",
+    alignItems: "center"
   },
+  // selectedColor: {},
   feePhotoTitle: {
     fontFamily: "MuseoMedium",
     fontSize: 12,

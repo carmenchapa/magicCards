@@ -9,6 +9,7 @@ import {
 } from "react-native"
 import {LinearGradient} from "expo-linear-gradient"
 import {styles as s} from "../Styles"
+import {Colors} from "./ColorsRow"
 
 export const ImageListItem = props => {
   return (
@@ -33,11 +34,3 @@ export const ImageListItem = props => {
     </TouchableOpacity>
   )
 }
-
-const Colors = props => (
-  <View style={s.colors}>
-    {props.colors.map((e, i) => (
-      <View key={i} style={[s.color, {backgroundColor: e.toLowerCase()}]} />
-    ))}
-  </View>
-)
