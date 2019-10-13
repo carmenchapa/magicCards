@@ -18,7 +18,6 @@ export const styles = StyleSheet.create({
   endContent: {justifyContent: "flex-end"},
   startContent: {justifyContent: "flex-start"},
   centerItems: {alignItems: "center"},
-  white: {backgroundColor: "white"},
   fullFill: {
     height: SCREEN_HEIGHT,
     width: SCREEN_WIDTH
@@ -38,7 +37,8 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: HORIZONTAL_PADDING,
     height: 120,
-    paddingTop: hp("5%")
+    paddingTop: hp("5%"),
+    backgroundColor: "white"
   },
   header: {
     height: NAVBAR_HEIGHT,
@@ -66,30 +66,30 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
     elevation: 5
   },
   card: {
+    // justifyContent: "flex-start",
+    alignItems: "flex-start",
     borderRadius: 14,
     margin: 10,
-    marginTop: 26,
+    marginTop: 15,
+    padding: 15,
     width: wp("80%"),
-    alignItems: "center"
+    height: wp("25%")
   },
-  listItem: {
-    flex: 1,
-    height: wp("128%"),
-    marginTop: 10,
-    justifyContent: "flex-start"
+
+  title: {
+    fontFamily: "MuseoMedium",
+    fontSize: 14,
+    lineHeight: 15,
+    marginBottom: 5
   },
-  magicItem: {
-    width: wp("70%"),
-    height: wp("98%"),
-    borderRadius: 14,
-    marginTop: 6,
-    alignSelf: "center"
+  infoText: {
+    fontFamily: "MuseoLight",
+    fontSize: 10,
+    lineHeight: 9
   },
-  info: {padding: 20},
   colors: {
     flexDirection: "row",
     paddingTop: 10
@@ -102,41 +102,16 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  // selectedColor: {},
-  feePhotoTitle: {
-    fontFamily: "MuseoMedium",
-    fontSize: 12,
-    lineHeight: 14,
-    marginBottom: 5
-    // color: "#fff"
-  },
-  feeLikes: {
-    fontFamily: "MuseoLight",
-    fontSize: 8,
-    lineHeight: 9
-    // color: "#fff"
-  },
   //-----** Detail **-----//
-  detailInfo: {
-    padding: HORIZONTAL_PADDING
+  magicImage: {
+    width: wp("80%"),
+    minHeight: wp("116%"),
+    borderRadius: 28,
+    alignSelf: "center"
   },
-  detailPhotoTitle: {
-    fontFamily: "MuseoMedium",
-    fontSize: 42,
-    lineHeight: 49,
-    color: "#fff"
-  },
-  detailLikes: {
-    fontFamily: "MuseoLight",
-    fontSize: 14,
-    lineHeight: 16,
-    color: "#fff"
-  },
-  detailUserName: {
-    fontFamily: "MuseoMedium",
-    fontSize: 12,
-    lineHeight: 14,
-    paddingBottom: 8,
-    color: "#fff"
+  modalView: {
+    justifyContent: "space-around",
+    alignItems: "flex-end",
+    backgroundColor: "rgba(0,0,0,0.5)"
   }
 })
