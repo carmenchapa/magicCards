@@ -68,7 +68,7 @@ export default class Home extends React.Component {
     return (
       <View
         style={[
-          {backgroundColor: "white"},
+          s.white,
           s.headerContainer,
           s.cardShadow,
           s.fullWidth,

@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
   endContent: {justifyContent: "flex-end"},
   startContent: {justifyContent: "flex-start"},
   centerItems: {alignItems: "center"},
+  white: {backgroundColor: "white"},
   fullFill: {
     height: SCREEN_HEIGHT,
     width: SCREEN_WIDTH
