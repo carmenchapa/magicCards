@@ -2,6 +2,7 @@ import React from "react"
 import {
   ActivityIndicator,
   FlatList,
+  Modal,
   StyleSheet,
   Text,
   TextInput,
@@ -10,6 +11,7 @@ import {
 import axios from "axios"
 // import mtgsdk from "mtgsdk"
 import {ImageListItem} from "./components/ImageList"
+import {CardDetail} from "./components/CardDetail"
 import {Colors} from "./components/ColorsRow"
 import {styles as s} from "./Styles"
 import {
@@ -27,7 +29,6 @@ export default class Home extends React.Component {
     closeIcon: false
   }
   cardsCall = () => {
-    // console.log("cardsCall", this.state.page)
     let url = `https://api.magicthegathering.io/v1/cards?contains=imageUrl&pageSize=30&page=${this.state.page}`
     url = this.state.selectedColor
       ? url + `&colors=${this.state.selectedColor.toLowerCase()}`
@@ -63,27 +64,21 @@ export default class Home extends React.Component {
 
   selectColor = c => this.setState({selectedColor: c}, this.resetCards)
 
+  openDetail = url => this.setState({image: url})
+
+  closeDetail = () => this.setState({image: null})
+
   headerComponent = () => {
     const colors = ["White", "Blue", "Green", "Red", "Black"]
     return (
-      <View
-        style={[
-          s.white,
-          s.headerContainer,
-          s.cardShadow,
-          s.fullWidth,
-          s.centerItems
-        ]}
-      >
+      <View style={[s.headerContainer, s.cardShadow, s.fullWidth]}>
         <View style={s.search}>
           <TextInput
             onChangeText={text => this.onChangeText(text)}
             placeholder={"search"}
             value={this.state.search}
-            onEndEditing={this.search}
-            // style={{alignItems: "flex-end"}}
+            // onEndEditing={this.search}
           />
-
           <AntDesign
             name={this.state.closeIcon ? "close" : "search1"}
             color={"grey"}
@@ -99,6 +94,16 @@ export default class Home extends React.Component {
     )
   }
 
+  renderItem = ({item, index}) => (
+    <ImageListItem item={item} onPress={() => this.openDetail(item.imageUrl)} />
+  )
+
+  emptyComponent = () => (
+    <View style={[s.fullFill, s.centerContent, s.centerItems, s.absoluteTop]}>
+      <ActivityIndicator />
+    </View>
+  )
+
   componentDidMount() {
     this.cardsCall()
   }
@@ -109,34 +114,16 @@ export default class Home extends React.Component {
         <FlatList
           data={this.state.cards}
           keyExtractor={(item, index) => item + index}
-          renderItem={({item, index}) => (
-            <ImageListItem
-              item={item}
-              // navigate={() =>
-              //   navigation.navigate("Detail", {data: "random", index: index})
-              // }
-            />
-          )}
+          renderItem={this.renderItem}
           ListHeaderComponent={this.headerComponent}
           stickyHeaderIndices={[0]}
-          ListEmptyComponent={() => (
-            <View
-              style={[
-                s.fullFill,
-                s.centerContent,
-                s.centerItems,
-                s.absoluteTop
-              ]}
-            >
-              <ActivityIndicator />
-            </View>
-          )}
-          contentContainerStyle={{
-            // marginTop: 20,
-            alignItems: "center"
-          }}
+          ListEmptyComponent={this.emptyComponent}
+          contentContainerStyle={s.centerItems}
           onEndReached={this.onEndReached}
         />
+        <Modal transparent visible={Boolean(this.state.image)}>
+          <CardDetail image={this.state.image} onPress={this.closeDetail} />
+        </Modal>
       </View>
     )
   }
