@@ -44,13 +44,16 @@ export const styles = StyleSheet.create({
     paddingTop: STATUS_BAR_HEIGHT
   },
   search: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     height: 30,
     borderColor: "gray",
     borderWidth: 0,
     backgroundColor: "#eceff1",
     borderRadius: 8,
     width: wp("80%"),
-    paddingLeft: 20
+    paddingHorizontal: 15
   },
   //-----** FlatList **-----//
   cardShadow: {

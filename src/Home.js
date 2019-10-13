@@ -16,6 +16,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
 } from "react-native-responsive-screen"
+import {AntDesign} from "@expo/vector-icons"
 
 export default class Home extends React.Component {
   state = {
@@ -54,7 +55,7 @@ export default class Home extends React.Component {
 
   onChangeText = v => this.setState({search: v})
 
-  // onEndEditing = () =>
+  closeSearch = () => this.setState({search: null}, this.resetCards)
 
   selectColor = c => this.setState({selectedColor: c}, this.resetCards)
 
@@ -70,13 +71,16 @@ export default class Home extends React.Component {
           s.centerItems
         ]}
       >
-        <TextInput
-          style={s.search}
-          onChangeText={text => this.onChangeText(text)}
-          placeholder={"search"}
-          value={this.state.search}
-          onEndEditing={this.resetCards}
-        />
+        <View style={s.search}>
+          <TextInput
+            onChangeText={text => this.onChangeText(text)}
+            placeholder={"search"}
+            value={this.state.search}
+            onEndEditing={this.resetCards}
+            // style={{alignItems: "flex-end"}}
+          />
+          <AntDesign name="close" color={"grey"} onPress={this.closeSearch} />
+        </View>
         <Colors
           colors={colors}
           onPress={c => this.selectColor(c)}
