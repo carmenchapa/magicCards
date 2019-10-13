@@ -9,8 +9,14 @@ export const ListItem = props => {
     <TouchableOpacity onPress={() => props.onPress()}>
       <View style={[s.cardShadow, s.card]}>
         <Text style={s.title}>{`${props.item.name}`}</Text>
-        <Text style={s.infoText}>{`${props.item.type}`}</Text>
-        <Text style={s.infoText}>{`${props.item.setName}`}</Text>
+        <Text style={s.infoText}>
+          <Text style={s.infoTitle}>Type: </Text>
+          {`${props.item.type}`}
+        </Text>
+        <Text style={s.infoText}>
+          <Text style={s.infoTitle}>Set name: </Text>
+          {`${props.item.setName}`}
+        </Text>
         <Colors colors={props.item.colors} />
       </View>
     </TouchableOpacity>

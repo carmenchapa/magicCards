@@ -67,23 +67,28 @@ export const styles = StyleSheet.create({
     marginTop: 15,
     padding: 15,
     width: wp("80%"),
-    height: wp("25%")
+    minHeight: wp("28%")
   },
 
   title: {
-    fontFamily: "MuseoMedium",
+    fontFamily: "MuseoBlack",
     fontSize: 14,
     lineHeight: 15,
     marginBottom: 5
   },
+  infoTitle: {
+    fontFamily: "MuseoBold",
+    fontSize: 12,
+    lineHeight: 16
+  },
   infoText: {
-    fontFamily: "MuseoLight",
-    fontSize: 10,
-    lineHeight: 9
+    fontFamily: "MuseoRegular",
+    fontSize: 12,
+    lineHeight: 16
   },
   colors: {
     flexDirection: "row",
-    paddingTop: 10
+    paddingTop: 8
   },
   color: {
     width: 20,
