@@ -23,7 +23,8 @@ export default class Home extends React.Component {
     page: 0,
     cards: [],
     selectedColor: null,
-    search: null
+    search: null,
+    closeIcon: false
   }
   cardsCall = () => {
     // console.log("cardsCall", this.state.page)
@@ -55,7 +56,10 @@ export default class Home extends React.Component {
 
   onChangeText = v => this.setState({search: v})
 
-  closeSearch = () => this.setState({search: null}, this.resetCards)
+  search = () => this.setState({closeIcon: true}, this.resetCards)
+
+  closeSearch = () =>
+    this.setState({search: null, closeIcon: false}, this.resetCards)
 
   selectColor = c => this.setState({selectedColor: c}, this.resetCards)
 
@@ -76,10 +80,15 @@ export default class Home extends React.Component {
             onChangeText={text => this.onChangeText(text)}
             placeholder={"search"}
             value={this.state.search}
-            onEndEditing={this.resetCards}
+            onEndEditing={this.search}
             // style={{alignItems: "flex-end"}}
           />
-          <AntDesign name="close" color={"grey"} onPress={this.closeSearch} />
+
+          <AntDesign
+            name={this.state.closeIcon ? "close" : "search1"}
+            color={"grey"}
+            onPress={this.state.closeIcon ? this.closeSearch : this.search}
+          />
         </View>
         <Colors
           colors={colors}
