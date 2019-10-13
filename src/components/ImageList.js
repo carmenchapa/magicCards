@@ -13,23 +13,12 @@ import {Colors} from "./ColorsRow"
 
 export const ImageListItem = props => {
   return (
-    <TouchableOpacity onPress={() => console.log(props.item)}>
+    <TouchableOpacity onPress={() => props.onPress()}>
       <View style={[s.cardShadow, s.card]}>
-        <View style={s.listItem}>
-          <Image
-            style={[s.magicItem]}
-            source={{
-              uri: props.item.imageUrl
-            }}
-            resizeMode="contain"
-          ></Image>
-          <View style={s.info}>
-            <Text style={s.feePhotoTitle}>{`${props.item.name}`}</Text>
-            <Text style={s.feeLikes}>{`${props.item.type}`}</Text>
-            <Text style={s.feeLikes}>{`${props.item.setName}`}</Text>
-            <Colors colors={props.item.colors} />
-          </View>
-        </View>
+        <Text style={s.title}>{`${props.item.name}`}</Text>
+        <Text style={s.infoText}>{`${props.item.type}`}</Text>
+        <Text style={s.infoText}>{`${props.item.setName}`}</Text>
+        <Colors colors={props.item.colors} />
       </View>
     </TouchableOpacity>
   )
