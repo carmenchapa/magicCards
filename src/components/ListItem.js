@@ -1,12 +1,5 @@
 import React from "react"
-import {
-  FlatList,
-  Image,
-  ImageBackground,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native"
+import {Text, TouchableOpacity, View} from "react-native"
 import {LinearGradient} from "expo-linear-gradient"
 import {styles as s} from "../Styles"
 import {Colors} from "./ColorsRow"

@@ -1,5 +1,5 @@
 import React from "react"
-import {Image, TouchableOpacity, View} from "react-native"
+import {Image, View} from "react-native"
 import {styles as s} from "../Styles"
 import {AntDesign} from "@expo/vector-icons"
 
