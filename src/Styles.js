@@ -40,12 +40,12 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    height: 30,
     borderColor: "gray",
     borderWidth: 0,
     backgroundColor: "#eceff1",
     borderRadius: 8,
     width: wp("80%"),
+    height: 30,
     paddingHorizontal: 15
   },
   //-----** FlatList **-----//
@@ -69,7 +69,6 @@ export const styles = StyleSheet.create({
     width: wp("80%"),
     minHeight: wp("28%")
   },
-
   title: {
     fontFamily: "MuseoBlack",
     fontSize: 14,
@@ -77,9 +76,7 @@ export const styles = StyleSheet.create({
     marginBottom: 5
   },
   infoTitle: {
-    fontFamily: "MuseoBold",
-    fontSize: 12,
-    lineHeight: 16
+    fontFamily: "MuseoBold"
   },
   infoText: {
     fontFamily: "MuseoRegular",
@@ -93,7 +90,7 @@ export const styles = StyleSheet.create({
   color: {
     width: 20,
     height: 20,
-    borderRadius: 20,
+    borderRadius: 10,
     marginRight: 10,
     justifyContent: "center",
     alignItems: "center"

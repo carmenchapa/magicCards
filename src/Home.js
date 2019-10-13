@@ -73,6 +73,7 @@ export default class Home extends React.Component {
       <View style={[s.headerContainer, s.cardShadow, s.fullWidth]}>
         <View style={s.search}>
           <TextInput
+            style={{fontFamily: "MuseoRegular"}}
             onChangeText={text => this.onChangeText(text)}
             placeholder={"search"}
             value={this.state.search}
