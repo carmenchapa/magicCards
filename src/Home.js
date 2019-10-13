@@ -10,7 +10,7 @@ import {
 } from "react-native"
 import axios from "axios"
 // import mtgsdk from "mtgsdk"
-import {ImageListItem} from "./components/ImageList"
+import {ListItem} from "./components/ListItem"
 import {CardDetail} from "./components/CardDetail"
 import {Colors} from "./components/ColorsRow"
 import {styles as s} from "./Styles"
@@ -95,7 +95,7 @@ export default class Home extends React.Component {
   }
 
   renderItem = ({item, index}) => (
-    <ImageListItem item={item} onPress={() => this.openDetail(item.imageUrl)} />
+    <ListItem item={item} onPress={() => this.openDetail(item.imageUrl)} />
   )
 
   emptyComponent = () => (

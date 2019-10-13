@@ -11,7 +11,7 @@ import {LinearGradient} from "expo-linear-gradient"
 import {styles as s} from "../Styles"
 import {Colors} from "./ColorsRow"
 
-export const ImageListItem = props => {
+export const ListItem = props => {
   return (
     <TouchableOpacity onPress={() => props.onPress()}>
       <View style={[s.cardShadow, s.card]}>
