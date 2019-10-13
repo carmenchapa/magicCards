@@ -1,15 +1,11 @@
-import {StyleSheet} from "react-native"
+import {StyleSheet, Platform} from "react-native"
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
 } from "react-native-responsive-screen"
-import {
-  HORIZONTAL_PADDING,
-  NAVBAR_HEIGHT,
-  SCREEN_HEIGHT,
-  SCREEN_WIDTH,
-  STATUS_BAR_HEIGHT
-} from "./Constants"
+
+const SCREEN_WIDTH = wp("100%")
+const SCREEN_HEIGHT = hp("100%")
 
 export const styles = StyleSheet.create({
   //-----** General styles **-----//
@@ -35,14 +31,10 @@ export const styles = StyleSheet.create({
   headerContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginHorizontal: HORIZONTAL_PADDING,
+    marginHorizontal: 26,
     height: 120,
     paddingTop: hp("5%"),
     backgroundColor: "white"
-  },
-  header: {
-    height: NAVBAR_HEIGHT,
-    paddingTop: STATUS_BAR_HEIGHT
   },
   search: {
     flexDirection: "row",
@@ -69,7 +61,6 @@ export const styles = StyleSheet.create({
     elevation: 5
   },
   card: {
-    // justifyContent: "flex-start",
     alignItems: "flex-start",
     borderRadius: 14,
     margin: 10,
