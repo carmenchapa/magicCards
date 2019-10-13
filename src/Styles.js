@@ -34,25 +34,26 @@ export const styles = StyleSheet.create({
   //-----** Header **-----//
   headerContainer: {
     justifyContent: "center",
+    alignItems: "center",
     marginHorizontal: HORIZONTAL_PADDING,
-    paddingTop: hp("4%")
+    height: 120,
+    paddingTop: hp("5%")
   },
   header: {
     height: NAVBAR_HEIGHT,
     paddingTop: STATUS_BAR_HEIGHT
   },
-  iconsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
+  search: {
+    height: 30,
+    borderColor: "gray",
+    borderWidth: 0,
+    backgroundColor: "#eceff1",
+    borderRadius: 8,
+    width: wp("80%"),
+    paddingLeft: 20
   },
   //-----** FlatList **-----//
   cardShadow: {
-    margin: 10,
-    marginTop: 26,
-    width: wp("80%"),
-    alignItems: "center",
-    borderRadius: 14,
     backgroundColor: "#fff",
     shadowColor: "#000",
     shadowOffset: {
@@ -63,6 +64,13 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 5
+  },
+  card: {
+    borderRadius: 14,
+    margin: 10,
+    marginTop: 26,
+    width: wp("80%"),
+    alignItems: "center"
   },
   listItem: {
     flex: 1,
