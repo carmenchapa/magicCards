@@ -9,7 +9,6 @@ import {
   View
 } from "react-native"
 import axios from "axios"
-// import mtgsdk from "mtgsdk"
 import {ListItem} from "./components/ListItem"
 import {CardDetail} from "./components/CardDetail"
 import {Colors} from "./components/ColorsRow"
