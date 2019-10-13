@@ -14,7 +14,7 @@ import {Colors} from "./ColorsRow"
 export const ImageListItem = props => {
   return (
     <TouchableOpacity onPress={() => console.log(props.item)}>
-      <View style={s.cardShadow}>
+      <View style={[s.cardShadow, s.card]}>
         <View style={s.listItem}>
           <Image
             style={[s.magicItem]}
