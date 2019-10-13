@@ -1,5 +1,12 @@
 import React from "react"
-import {ActivityIndicator, FlatList, StyleSheet, Text, View} from "react-native"
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  TextInput,
+  View
+} from "react-native"
 import axios from "axios"
 // import mtgsdk from "mtgsdk"
 import {ImageListItem} from "./components/ImageList"
@@ -14,16 +21,18 @@ export default class Home extends React.Component {
   state = {
     page: 0,
     cards: [],
-    selectedColor: null
+    selectedColor: null,
+    search: null
   }
   cardsCall = () => {
-    console.log("cardsCall", this.state.page)
+    // console.log("cardsCall", this.state.page)
     let url = `https://api.magicthegathering.io/v1/cards?contains=imageUrl&pageSize=30&page=${this.state.page}`
     url = this.state.selectedColor
       ? url + `&colors=${this.state.selectedColor.toLowerCase()}`
       : url
+    url = this.state.search ? url + `&name=${this.state.search}` : url
 
-    console.log("url", url)
+    // console.log("url", url)
     axios
       .get(url)
       .then(response => {
@@ -39,16 +48,15 @@ export default class Home extends React.Component {
       .catch(error => console.log(error))
   }
 
-  resetCards = () => {
-    this.setState({page: 0, cards: []}, this.cardsCall)
-  }
+  resetCards = () => this.setState({page: 0, cards: []}, this.cardsCall)
 
   onEndReached = () => this.cardsCall()
 
-  selectColor = c => {
-    console.log(c)
-    this.setState({selectedColor: c}, this.resetCards)
-  }
+  onChangeText = v => this.setState({search: v})
+
+  // onEndEditing = () =>
+
+  selectColor = c => this.setState({selectedColor: c}, this.resetCards)
 
   headerComponent = () => {
     const colors = ["White", "Blue", "Green", "Red", "Black"]
@@ -56,11 +64,19 @@ export default class Home extends React.Component {
       <View
         style={[
           {backgroundColor: "white"},
+          s.headerContainer,
+          s.cardShadow,
           s.fullWidth,
-          s.centerContent,
           s.centerItems
         ]}
       >
+        <TextInput
+          style={s.search}
+          onChangeText={text => this.onChangeText(text)}
+          placeholder={"search"}
+          value={this.state.search}
+          onEndEditing={this.resetCards}
+        />
         <Colors
           colors={colors}
           onPress={c => this.selectColor(c)}
@@ -76,7 +92,7 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <View style={s.flx1}>
+      <View style={(s.flx1, s.fullFill)}>
         <FlatList
           data={this.state.cards}
           keyExtractor={(item, index) => item + index}
@@ -91,12 +107,19 @@ export default class Home extends React.Component {
           ListHeaderComponent={this.headerComponent}
           stickyHeaderIndices={[0]}
           ListEmptyComponent={() => (
-            <View style={[s.fullFill, s.centerContent, s.centerItems]}>
+            <View
+              style={[
+                s.fullFill,
+                s.centerContent,
+                s.centerItems,
+                s.absoluteTop
+              ]}
+            >
               <ActivityIndicator />
             </View>
           )}
           contentContainerStyle={{
-            marginTop: hp("14%"),
+            // marginTop: 20,
             alignItems: "center"
           }}
           onEndReached={this.onEndReached}
