@@ -1,8 +1,9 @@
 # Lingokids test app
 
-## App description:
+## Description
 
-Simple UI for listing Magic The Gathering cards. Find more about the briefing [here](https://gist.github.com/fluiddot/df493de55d8ecbd0d1899fa779bde78a):
+Simple UI app for listing Magic The Gathering cards.
+Find more about the briefing [here](https://gist.github.com/fluiddot/df493de55d8ecbd0d1899fa779bde78a)
 
 ## Getting Started
 
@@ -15,6 +16,8 @@ Install Expo CLI:
 ```
 npm install -g expo-cli
 ```
+
+### Run
 
 Clone the repo on your local machine:
 
