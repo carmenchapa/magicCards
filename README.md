@@ -2,13 +2,11 @@
 
 ## App description:
 
-Simple UI for listing Magic The Gathering cards. Find more about the briefing here (https://gist.github.com/fluiddot/df493de55d8ecbd0d1899fa779bde78a)
-
-Once the exercise is finished please send it to us via GitHub/GitLab/BitBucket or email. If possible we would appreciate some instructions to run the project locally.
+Simple UI for listing Magic The Gathering cards. Find more about the briefing [here](https://gist.github.com/fluiddot/df493de55d8ecbd0d1899fa779bde78a)
 
 ## How to run:
 
-### Prerequisites
+<!-- ### Prerequisites -->
 
 Clone the repo on your local machine
 
